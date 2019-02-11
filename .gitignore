@@ -1,0 +1,13 @@
+
+
+# Intellij IDE
+/target/
+/.idea/
+*.iml
+
+.DS_Store
+
+
+#Eclipse
+/.settings/
+
