@@ -59,10 +59,10 @@ ters like sorting and filtering specified by JSON API. The subsequent sections w
 ### Filtering
 Resource filtering can be achieved by providing parameters which start with filter. The format for filters:
 filter[ResourceType][property|operator]([property|operator])* = "value"
-• GET /tasks/?filter[name]=Super task
-• GET /tasks/?filter[name][EQ]=Super task
-• GET /tasks/?filter[tasks][name]=Super task
-• GET /tasks/?filter[tasks][name]=Super task&filter[tasks][dueDate]=2015-10-01
+- GET /tasks/?filter[name]=Super task
+- GET /tasks/?filter[name][EQ]=Super task
+- GET /tasks/?filter[tasks][name]=Super task
+- GET /tasks/?filter[tasks][name]=Super task&filter[tasks][dueDate]=2015-10-01
 QuerySpec uses the EQ operator if no operator was provided. Custom operators can be registered with
 DefaultQuerySpecDeserializer.addSupportedOperator(..). The default operator can be overrid-
 den by setting DefaultQuerySpecDeserializer.setDefaultOperator(...).
@@ -72,19 +72,19 @@ Pagination for the repositories can be achieved by providing page parameter.
 page[offset|limit] = "value", where value is an integer
 The format for pagination:
 Example:
-• GET /tasks/?page[offset]=0&page[limit]=10
+- GET /tasks/?page[offset]=0&page[limit]=10
 ### Sparse Fieldsets
 Information about fields to include in the response can be achieved by providing fields parameter.
-• GET /tasks/?fields=name
-• GET /tasks/?fields[projects]=name,description&include=projects
+- GET /tasks/?fields=name
+- GET /tasks/?fields[projects]=name,description&include=projects
 
 ### Inclusion of Related Resources
 Information about relationships to include in the response can be achieved by providing include parameter. The
 format for fields: include[ResourceType] = "property(.property)*"
-Examples:
-• GET /tasks/?include[tasks]=project
-• GET /tasks/1/?include[tasks]=project
-• GET /tasks/?include[tasks]=author
-• GET /tasks/?include[tasks][]=author&include[tasks][]=comments
-• GET /tasks/?include[projects]=task&include[tasks]=comments
-• GET /tasks/?include[projects]=task&include=comments (QuerySpec example)
+#### Examples:
+- GET /tasks/?include[tasks]=project
+- GET /tasks/1/?include[tasks]=project
+- GET /tasks/?include[tasks]=author
+- GET /tasks/?include[tasks][]=author&include[tasks][]=comments
+- GET /tasks/?include[projects]=task&include[tasks]=comments
+- GET /tasks/?include[projects]=task&include=comments (QuerySpec example)
